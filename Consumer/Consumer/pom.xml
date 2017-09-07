@@ -47,4 +47,23 @@
    <url>https://maven.atlassian.com/repository/internal</url>
   </repository>
  </repositories>
+<build>
+ <pluginManagement>
+      <!-- NOTE: These plugins will be removed from future versions of the super POM -->
+      <!-- They are kept for the moment as they are very unlikely to conflict with lifecycle mappings (MNG-4453) -->
+      <plugins>
+        <plugin>
+    <groupId>au.com.dius</groupId>
+    <artifactId>pact-jvm-provider-maven_2.11</artifactId>
+    <version>3.3.8</version>
+    <configuration>
+      <pactDirectory>/home/ubuntu/PactServices/Consumer/Consumer/target/pacts</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
+      <pactBrokerUrl>http://localhost:8081</pactBrokerUrl>
+      <projectVersion>1.0.100</projectVersion> <!-- Defaults to ${project.version} -->
+      <trimSnapshot>true</trimSnapshot> <!-- Defaults to  false -->
+    </configuration>
+</plugin>
+      </plugins>
+    </pluginManagement>
+</build>
 </project>
