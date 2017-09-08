@@ -4,6 +4,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.ggktech.rest.dto.User;
 
+
 public class RestClient {
 
 	private RestTemplate restTemplate;

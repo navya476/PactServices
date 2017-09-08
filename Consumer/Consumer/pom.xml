@@ -21,7 +21,7 @@
   <java.version>1.8</java.version>
  </properties>
 
- <!-- <build> <plugins> <plugin> <groupId>org.springframework.boot</groupId> 
+ <!-- <build> <plugins> <plugin> <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-maven-plugin</artifactId> </plugin> </plugins> </build> -->
 
  <dependencies>
@@ -57,12 +57,26 @@
     <artifactId>pact-jvm-provider-maven_2.11</artifactId>
     <version>3.3.8</version>
     <configuration>
-      <pactDirectory>/home/ubuntu/PactServices/Consumer/Consumer/target/pacts</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
-      <pactBrokerUrl>http://localhost:8081</pactBrokerUrl>
-      <projectVersion>1.0.100</projectVersion> <!-- Defaults to ${project.version} -->
+      <pactDirectory>${project.build.directory}/pacts</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
+      <pactBrokerUrl>http://54.233.100.137:8081</pactBrokerUrl>
+      <projectVersion>1.0.1</projectVersion> <!-- Defaults to ${project.version} -->
       <trimSnapshot>true</trimSnapshot> <!-- Defaults to  false -->
     </configuration>
 </plugin>
+<!-- <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <configuration>
+     <systemPropertyVariables>
+      <pact.rootDir>pacts</pact.rootDir>
+      <buildDirectory>${project.build.directory}</buildDirectory>
+     </systemPropertyVariables>
+    </configuration>
+   </plugin> -->
+   <plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+   </plugin>
       </plugins>
     </pluginManagement>
 </build>
